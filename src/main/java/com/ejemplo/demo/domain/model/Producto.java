@@ -25,7 +25,6 @@ public class Producto {
     private Categoria categoria;
 
     // --- Getters y Setters ---
-
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -40,4 +39,5 @@ public class Producto {
 
     public Categoria getCategoria() { return categoria; }
     public void setCategoria(Categoria categoria) { this.categoria = categoria; }
+    
 }

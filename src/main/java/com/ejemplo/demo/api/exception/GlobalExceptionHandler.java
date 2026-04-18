@@ -61,4 +61,8 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
     }
     
+    @ExceptionHandler(jakarta.persistence.EntityNotFoundException.class)
+    public org.springframework.http.ResponseEntity<String> handleEntityNotFound(jakarta.persistence.EntityNotFoundException ex) {
+        return org.springframework.http.ResponseEntity.status(org.springframework.http.HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
 }
