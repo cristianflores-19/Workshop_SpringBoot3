@@ -62,6 +62,43 @@
 
 	<build>
 		<plugins>
+		<plugin>
+    <groupId>org.openapitools</groupId>
+    <artifactId>openapi-generator-maven-plugin</artifactId>
+    <version>7.1.0</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <inputSpec>${project.basedir}/src/main/resources/openapi/openapi.yaml</inputSpec>
+                <generatorName>spring</generatorName>
+                <apiPackage>com.ejemplo.demo.api.interfaces</apiPackage>
+                <generateModels>false</generateModels> <configOptions>
+                    <interfaceOnly>true</interfaceOnly>
+                    <useTags>true</useTags>
+                    <useSpringBoot3>true</useSpringBoot3>
+                    <useJakartaEe>true</useJakartaEe>
+                </configOptions>
+                <importMappings>
+                    <importMapping>WorkshopHealth=java.util.Map</importMapping>
+                    <importMapping>SaludoRequest=com.ejemplo.demo.api.dto.SaludoRequest</importMapping>
+                    <importMapping>SaludoResponse=com.ejemplo.demo.api.dto.SaludoResponse</importMapping>
+                    <importMapping>PrestamoRequest=com.ejemplo.demo.api.dto.PrestamoRequest</importMapping>
+                    <importMapping>PrestamoResponse=com.ejemplo.demo.api.dto.PrestamoResponse</importMapping>
+                </importMappings>
+                <typeMappings>
+                    <typeMapping>WorkshopHealth=java.util.Map</typeMapping>
+                    <typeMapping>SaludoRequest=com.ejemplo.demo.api.dto.SaludoRequest</typeMapping>
+                    <typeMapping>SaludoResponse=com.ejemplo.demo.api.dto.SaludoResponse</typeMapping>
+                    <typeMapping>PrestamoRequest=com.ejemplo.demo.api.dto.PrestamoRequest</typeMapping>
+                    <typeMapping>PrestamoResponse=com.ejemplo.demo.api.dto.PrestamoResponse</typeMapping>
+                </typeMappings>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
